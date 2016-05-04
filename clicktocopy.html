@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    
+  <p>Which account will get these packages?</p>
+
+    <form>
+    <input type="radio" name="browser" onclick="check(this.value)" value="whizzzzz">Vince DSP<br>
+    <input type="radio" name="browser" onclick="check(this.value)" value="zzzzieinf">Nadia DA<br>
+    <input type="radio" name="browser" onclick="check(this.value)" value="23oifn">Matt F<br>
+    <br>
+    The transporterID will be: <input type="text" id="answer" size="20">
+    </form>
+  
+  <button data-copytarget="#answer">copy</button>
+
+  <script>
+    function check(rb) {
+        document.getElementById("answer").value=rb;
+    }
+
+
+(function() {
+
+  'use strict';
+
+  // click events
+  document.body.addEventListener('click', copy, true);
+
+  // event handler
+  function copy(e) {
+
+    // find target element
+    var
+      t = e.target,
+      c = t.dataset.copytarget,
+      inp = (c ? document.querySelector(c) : null);
+
+    // is element selectable?
+    if (inp && inp.select) {
+
+      // select text
+      inp.select();
+
+      try {
+        // copy text
+        document.execCommand('copy');
+        inp.blur();
+      }
+      catch (err) {
+        alert('please press Ctrl/Cmd+C to copy');
+      }
+
+    }
+
+  }
+
+})();
+
+  </script>
+
+</body>
+</html>
